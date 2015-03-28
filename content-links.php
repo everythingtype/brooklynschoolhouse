@@ -92,6 +92,8 @@ if ( get_sub_field( 'link_square' ) ):
 
 	</div></div>
 
+	<?php get_template_part('parts/fabbutton'); ?>
+
 </section>
 
 <?php endif; ?>

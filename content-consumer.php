@@ -19,6 +19,9 @@
 			</div>
 		<?php endif; ?>
 		<span class="separator"></span>
+
+		<?php get_template_part('parts/fabbutton'); ?>
+
 	</div>
 
 </section>

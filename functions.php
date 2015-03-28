@@ -1,50 +1,9 @@
 <?php
 
-function etc_creative_scripts() {
+// Includes
 
-	$version = "b";
-
-	// Remove Unnecessary Code
-	// http://www.themelab.com/2010/07/11/remove-code-wordpress-header/
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'wp_generator');
-	remove_action('wp_head', 'start_post_rel_link');
-	remove_action('wp_head', 'index_rel_link');
-	remove_action('wp_head', 'adjacent_posts_rel_link');
-
-	// JS
-	
-	wp_enqueue_script("jquery");
-
-	$froogaloopjs = get_template_directory_uri() . '/js/froogaloop.min.js';
-	wp_register_script('froogaloopjs',$froogaloopjs, false, $version);
-	wp_enqueue_script( 'froogaloopjs',array('jquery') );
-
-	$flexsliderjs = get_template_directory_uri() . '/js/jquery.flexslider-min.js';
-	wp_register_script('flexsliderjs',$flexsliderjs, false, $version);
-	wp_enqueue_script( 'flexsliderjs',array('jquery') );
-
-	$layoutjs = get_template_directory_uri() . '/js/layout.js';
-	wp_register_script('layoutjs',$layoutjs, false, $version);
-	wp_enqueue_script( 'layoutjs',array('jquery') );
-
-	// CSS
-
-	$fontscss = get_template_directory_uri() . '/fonts/fonts.css';
-    wp_register_style('fontscss',$fontscss, false, $version);
-    wp_enqueue_style( 'fontscss');
-
-	$flexslidercss = get_template_directory_uri() . '/css/flexslider.css';
-    wp_register_style('flexslidercss',$flexslidercss, false, $version);
-    wp_enqueue_style( 'flexslidercss');
-
-	$themecss = get_stylesheet_directory_uri() . '/style.css';
-	wp_register_style('themecss',$themecss, false, $version);
-	wp_enqueue_style( 'themecss');
-
-}
-add_action( 'wp_print_styles', 'etc_creative_scripts' );
+require get_template_directory() . '/functions/enqueue.php';
+require get_template_directory() . '/functions/template-tags.php';
 
 
 function etc_creative_setup() {
@@ -72,8 +31,11 @@ function etc_creative_setup() {
 }
 add_action( 'after_setup_theme', 'etc_creative_setup' );
 
+// Menus
+add_action( 'init', 'register_my_menu' );
+function register_my_menu() {
+	register_nav_menu( 'mainmenu', __( 'Main Menu' ) );
+}
 
-// Includes
 
-require get_template_directory() . '/functions/template-tags.php';
 

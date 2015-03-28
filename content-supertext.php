@@ -64,4 +64,6 @@ endif;
 			<p class="morelink"><a href="<?php echo $linkhref; ?>">Read More <span>&roarr;</span></a></p>
 		<?php endif; ?>
 
+	<?php get_template_part('parts/fabbutton'); ?>
+
 </div></section><!-- .entry-content, #block-->

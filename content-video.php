@@ -35,6 +35,8 @@ if ( $oembed ) : ?>
 	</div>
 <?php endif; ?>
 
+	<?php get_template_part('parts/fabbutton'); ?>
+
 </section>
 
 <?php endif; ?>

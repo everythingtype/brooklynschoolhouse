@@ -2,6 +2,8 @@
 
 	var myScrollTop = 0;
 
+	var fullNav = true;
+
 	jQuery.fn.hoverClass = function() {
 		if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 			// Don't do
@@ -96,9 +98,30 @@
 
 	}
 
-	function setupNavArrows() {
-		$('.nav li ul').hide().parent().prepend('<span class="navarrow opensubs">&darr;</span>');
+	function setupNav(){
+		if ( $(".topnav").css("display") != "none" ) {
+			if ( fullNav == false ) {
+				fullNav = true;
+				setupWideNav();
+			}
+		} else {
+			if ( fullNav == true ) {
+				fullNav = false;
+				setupSkinnyNav();
+			}
+		}
 	}
+
+	function setupSkinnyNav(){
+		// console.log('setupSkinnyNav');
+	}
+
+	function setupWideNav(){
+		// console.log('setupWideNav');
+		$('.sitetitle .explore a').removeClass('active');
+		$('#navlightbox').hide();
+	}
+
 
 	function setupSliders() {
 		$('.flexslider').flexslider({
@@ -141,7 +164,10 @@
 	}
 
 	$(document).ready(function() {
+
 		$('html').addClass('js');
+
+		setupNav();
 
 		// Vimeo iframes need IDs for froogaloop autoplay to work
 		$('iframe').each(function(){
@@ -156,7 +182,6 @@
 		});
 
 		setMargin();
-		setupNavArrows();
 
 		$('.print a').on('click', function(event) {
 			event.preventDefault;
@@ -221,9 +246,11 @@
 	});
 
 	$(window).resize(function(){
+		setupNav();
 		setMargin();
 		setupSliders();
 	});
+
 
 })(jQuery);
 

@@ -1,3 +1,56 @@
+/* Pitch */
+
+@font-face {
+	font-family:"Pitch";
+	font-weight: 400;
+	font-style: normal;
+	src:url("commercial/PitchWeb-Medium.eot?#iefix");
+	src:url("commercial/PitchWeb-Medium.eot?#iefix") format("eot"),
+		url("commercial/PitchWeb-Medium.woff") format("woff")
+}
+
+
+/* Fakt */
+
+@font-face {
+	font-family:"Fakt";
+	font-weight: 400;
+	font-style: normal;
+	src:url("commercial/FaktSoftPro-Normal.eot?#iefix");
+	src:url("commercial/FaktSoftPro-Normal.eot?#iefix") format("eot"),
+		url("commercial/FaktSoftPro-Normal.woff") format("woff"),
+		url("commercial/FaktSoftPro-Normal.ttf") format("truetype")
+}
+
+@font-face {
+	font-family:"Fakt";
+	font-weight: 400;
+	font-style: italic;
+	src:url("commercial/FaktSoftPro-NormalItalic.eot?#iefix");
+	src:url("commercial/FaktSoftPro-NormalItalic.eot?#iefix") format("eot"),
+		url("commercial/FFaktSoftPro-NormalItalic.woff") format("woff"),
+		url("commercial/FaktSoftPro-NormalItalic.ttf") format("truetype")
+}
+
+@font-face {
+	font-family:"Fakt";
+	font-weight: 600;
+	font-style: normal;
+	src:url("commercial/FaktSoftPro-Bold.eot?#iefix");
+	src:url("commercial/FaktSoftPro-Bold.eot?#iefix") format("eot"),
+		url("commercial/FaktSoftPro-Bold.woff") format("woff"),
+		url("commercial/FaktSoftPro-Bold.ttf") format("truetype")
+}
+
+@font-face {
+	font-family:"Fakt";
+	font-weight: 600;
+	font-style: italic;
+	src:url("commercial/FaktSoftPro-BoldItalic.eot?#iefix");
+	src:url("commercial/FaktSoftPro-BoldItalic.eot?#iefix") format("eot"),
+		url("commercial/FaktSoftPro-BoldItalicd.woff") format("woff"),
+		url("commercial/FaktSoftPro-BoldItalic.ttf") format("truetype")
+}
 
 
 /* Icons */
@@ -5,7 +58,10 @@
 @font-face {
 	font-family: "Icons";
 	src:url("icons.eot");
-	src:url("icons.eot?#iefix") format("embedded-opentype"), url("icons.woff") format("woff"), url("icons.ttf") format("truetype"), url("icons.svg#icons") format("svg");
+	src:url("icons.eot?#iefix") format("embedded-opentype"), 
+		url("icons.woff") format("woff"), 
+		url("icons.ttf") format("truetype"), 
+		url("icons.svg#icons") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }

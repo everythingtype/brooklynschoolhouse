@@ -19,8 +19,6 @@ endif;
 
 			<?php etc_column_images( get_sub_field( 'singlegallery' ), 'large' ); ?>
 
-			<?php get_template_part( 'parts/images' ); ?>
-
 			<h3><?php the_sub_field( 'title' ); ?></h3>
 			<?php if ( get_sub_field( 'subtitle' ) ) : ?>
 				<h4><?php the_sub_field( 'subtitle' ); ?></h4>
@@ -49,6 +47,6 @@ endif;
 
 		<?php endif; ?>
 
-
+		<?php get_template_part('parts/fabbutton'); ?>
 
 </section>

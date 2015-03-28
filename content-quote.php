@@ -24,6 +24,7 @@
 		$linkhref = "";
 		$read_more_link_style = get_sub_field( 'read_more_link_style' );
 
+
 		if ( $read_more_link_style == 'internal' ) :
 			$read_more_link = get_sub_field('read_more_link_internal');
 			if ( $read_more_link ) :
@@ -36,9 +37,12 @@
 			endif;
 		endif;
 
-		if ( $linkhref != "" ) : ?>
-			<p class="morelink"><a href="<?php echo $linkhref; ?>">Read More <span>&roarr;</span></a></p>
+		if ( $linkhref != "" ) : 
+			$read_more_link_text = get_sub_field( 'read_more_link_text' ); ?>
+			<p class="morelink"><a href="<?php echo $linkhref; ?>"><?php echo $read_more_link_text; ?></a></p>
 		<?php endif; ?>
+
+		<?php get_template_part('parts/fabbutton'); ?>
 
 	</div>
 

@@ -47,7 +47,11 @@
 			<?php endwhile; ?>
 
 		<?php endif; ?>
-	</div></div>
+	</div>
+	
+		<?php get_template_part('parts/fabbutton'); ?>
+
+	</div>
 
 </section>
 

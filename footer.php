@@ -6,31 +6,46 @@ $url = get_permalink( $id );
 
 <?php if ( !is_404() ) : ?>
 
-<div class="footer">
+<div class="pagenav"><div class="pagenavmargin">
+	<div class="prev"><?php echo previous_page_not_post('<span class="arrow">&larr;</span><span class="label"><small>Previous</small> %title</span>', 'expand'); ?></div>
+	<div class="next"><?php echo next_page_not_post('<span class="arrow">&rarr;</span><span class="label"><small>Next</small> %title</span>', 'expand'); ?></div>
+</div></div>
 
-	<?php get_template_part('parts/pagetitle'); ?>
+<div class="footer"><div class="footermargin">
+
+		<h3>Brooklyn <span>Schoolhouse</span></h3>
+
+		<div class="footermenu">
+			<?php wp_nav_menu( array('theme_location'  => 'mainmenu' ) ); ?>
+		</div>
+
+		<div class="footercontact">
+			<p>156 Gates Avenue<br />
+			Brooklyn, New York 11238<br />
+			718&ndash;395&ndash;5415<br />
+			<a class="email" href="mailto:info@brooklynschoolhouse.nyc">info@brooklynschoolhouse.nyc</a></p>
+			<p class="facebook"><a href="https://www.facebook.com/brooklynschoolhouse">Facebook</a></p>
+		</div>
+
+
 
 	<div class="smallprint">
 
-		<p>&copy; Brooklyn Schoolhouse <?php echo date('Y')?></p>
+		<p>&copy; <?php echo date('Y')?> Brooklyn Schoolhouse</p>
 
-		<ul>
-			<li class="print"><span aria-hidden="true" class="icon-print"></span><a href="">Print</a></li>
-			<li class="email"><span aria-hidden="true" class="icon-email"></span><a href="mailto:?subject=<?php the_title(); ?>&amp;body=Hi,%0d%0A%0d%0AI thought you might find this page interesting: %0d%0A%0d%0A<?php echo $url; ?>">E-mail</a></li>
-		</ul>
+		<p>Site by <a href="http://etc-nyc.com">ETC</a></p>
+
 
 	</div>
 
-</div>
+</div></div>
 <?php endif; ?>
 
 </div><!-- content-area -->
 
 <div id="navlightbox" class="lightbox"><div class="box">
 	<div class="nav">
-		<ul>
-			<li>No nav yet!</li>
-		</ul>
+		<?php wp_nav_menu( array('theme_location'  => 'mainmenu' ) ); ?>
 	</div>
 </div></div>
 

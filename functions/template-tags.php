@@ -1,41 +1,5 @@
 <?php
 
-
-function the_etc_subpages($page_slug) {
-
-	$output = '';
-
-	$menuitemid = get_ID_by_slug($page_slug);
-
-	$children = get_children(array(
-		'orderby' => 'menu_order',
-		'order' => 'ASC',
-		'post_parent' => $menuitemid,
-		'post_type' => 'page',
-		'numberposts' => -1,
-		'post_status' => 'publish'
-	)); 
-
-	if ( $children ) :
-
-		foreach ($children as $child) :
-
-			$itemurl = get_permalink($child->ID);
-			$output .= '<li><a href="' . $itemurl . '">' . $child->post_title . '</a></li>';
-
-		endforeach;
-
-	endif;
-
-
-	if ( $output != '' ) :
-		echo '<ul>' . $output . '</ul>';
-	endif;
-
-
-}
-
-
 function etc_creative_wp_title( $title, $sep ) {
 	if ( is_feed() ) {
 		return $title;
@@ -60,6 +24,7 @@ function etc_creative_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'etc_creative_wp_title', 10, 2 );
+
 
 function etc_column_slideshow( $images, $size ) {
 
@@ -128,61 +93,6 @@ function etc_column_images( $images, $size ) {
 	endif;
 }
 
-function the_etc_breadcrumbs() {
-
-	global $post;
-
-	$output = '';
-
-	if ( is_page('homepage') ) :
-		$output .= 'Welcome';
-	elseif ( is_page('why-does-creativity-matter') ) :
-		$output .= '<span class="chapternumber">1</span> Why self-expression matters';
-	elseif ( is_page('what-is-creativity') ) :
-		$output .= '<span class="chapternumber">2</span> Expanding our perspective';
-	elseif ( is_page('how-do-our-consumers-use-it') ) :
-		$output .= '<span class="chapternumber">3</span> Self-expression and our consumers';
-	elseif ( is_page('where-will-we-find-creative-spirits') ) :
-		$output .= '<span class="chapternumber">4</span> Creative self-expression by country';
-	elseif ( is_page('resources') ) :
-		$output .= '<span class="chapternumber">5</span> Resources';
-	else :
-
-		if ( is_page_or_subpage_of('why-does-creativity-matter') ) :
-			$output .= '<a href="' . get_permalink( get_page_by_path( 'why-does-creativity-matter' ) ) . '"><span class="chapternumber">1</span> Why self-expression matters</a> ';
-		elseif ( is_page_or_subpage_of('what-is-creativity') ) :
-			$output .= '<a href="' . get_permalink( get_page_by_path( 'what-is-creativity' ) ) . '"><span class="chapternumber">2</span> Expanding our perspective</a> ';
-		elseif ( is_page_or_subpage_of('how-do-our-consumers-use-it') ) :
-			$output .= '<a href="' . get_permalink( get_page_by_path( 'how-do-our-consumers-use-it' ) ) . '"><span class="chapternumber">3</span> Self-expression and our consumers</a> ';
-		elseif ( is_page_or_subpage_of('where-will-we-find-creative-spirits') ) :
-			$output .= '<a href="' . get_permalink( get_page_by_path( 'where-will-we-find-creative-spirits' ) ) . '"><span class="chapternumber">4</span> Creative self-expression by country</a> ';
-		elseif ( is_page_or_subpage_of('resources') ) :
-			$output .= '<a href="' . get_permalink( get_page_by_path( 'resources' ) ) . '"><span class="chapternumber">5</span> Resources</a> ';
-		endif;
-
-		$ancestorid = wp_get_post_parent_id( $post->ID );
-
-		if ( $ancestorid != 0 ) :
-
-			$ancestor = get_post($ancestorid, ARRAY_A);
-		    $ancestorslug = $ancestor['post_name'];
-
-			if ( $ancestorslug != 'why-does-creativity-matter' && $ancestorslug != 'what-is-creativity' && $ancestorslug != 'how-do-our-consumers-use-it' && $ancestorslug != 'where-will-we-find-creative-spirits' && $ancestorslug != 'resources' ) :
-
-				$output .= '<span class="dot">•</span> <a href="' . get_permalink( $ancestor['ID'] ) . '">' . $ancestor['post_title'] . '</a> ';
-
-			endif;
-
-		endif;
-
-		$output .= '<span class="dot">•</span> ' . get_the_title();
-
-	endif;
-
-	echo $output;
-
-
-}
 
 function is_page_or_subpage_of($slug) {
 
@@ -221,5 +131,11 @@ function get_ID_by_slug($page_slug) {
 
 }
 
+//This is a filter to change the default validation message that Gravity Forms generates
+add_filter('gform_validation_message', 'change_validation_message', 10, 2);
+function change_validation_message($message, $form)
+{
+    return "<div class='validation_error'>Hi there. There seems to have been a problem with your submission. Errors have been highlighted below...</div>";
+}
 
 ?>

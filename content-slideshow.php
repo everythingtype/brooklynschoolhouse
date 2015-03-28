@@ -49,6 +49,8 @@
 			endif;
 		endif; ?>
 
+	<?php get_template_part('parts/fabbutton'); ?>
+
 	</div>
 
 </section>

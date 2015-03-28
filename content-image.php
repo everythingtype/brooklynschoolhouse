@@ -20,5 +20,7 @@ if ( $image ):
 		<?php endif; ?>
 	</figure>
 
+	<?php get_template_part('parts/fabbutton'); ?>
+
 </section>
 <?php endif; ?>
