@@ -1,7 +1,7 @@
 <section class="intro-block" <?php echo $style; ?>>
 <div class="entry-content">
 
-	<div class="illustration"><div class="ratio"></div></div>
+	<div class="illustration" title="Brooklyn Schoolhouse - A new independent preschool in Clinton Hill"><div class="ratio"></div></div>
 
 	<h2>Welcome to Brooklyn Schoolhouse</h2>
 

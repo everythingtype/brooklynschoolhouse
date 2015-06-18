@@ -39,7 +39,7 @@ figcaption a { color: #000; }
 hr { border: none; border-top: 2px solid #000; }
 
 .palette-gray { background: #f4f4f4; color: #000; }
-.palette-gray h3 { color: #000; }
+.palette-gray h3 { color: #004712; }
 
 .palette-white { background: #fff; color: #000; }
 
@@ -388,7 +388,6 @@ a.facebook { border: 1px solid #004712; color: #004712; border-radius: 3em; disp
 
 	.onecolumn-block .entry-content { font-size: 24px; line-height: 1.5833333333; letter-spacing: 0.035em; }
 	.onecolumn-block h3 { font-size: 36px; line-height: 1.3611111111; letter-spacing: -0.01em; margin: 68px 0 55px 0; }
-	.onecolumn-block p { margin: auto; }
 	.onecolumn-block a.readmore {  font-size: 16px; padding: 15px 20px 11px 20px; }
 }
 

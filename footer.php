@@ -8,7 +8,9 @@ $url = get_permalink( $id );
 
 <div class="pagenav"><div class="pagenavmargin">
 	<div class="prev"><?php echo previous_page_not_post('<span class="arrow">&larr;</span><span class="label"><small>Previous</small> %title</span>', 'expand'); ?></div>
-	<div class="next"><?php echo next_page_not_post('<span class="arrow">&rarr;</span><span class="label"><small>Next</small> %title</span>', 'expand'); ?></div>
+	<?php if ( !is_page('contact-us') ) : ?>
+		<div class="next"><?php echo next_page_not_post('<span class="arrow">&rarr;</span><span class="label"><small>Next</small> %title</span>', 'expand'); ?></div>
+	<?php endif; ?>
 </div></div>
 
 <div class="footer"><div class="footermargin">
